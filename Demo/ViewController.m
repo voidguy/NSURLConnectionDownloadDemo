@@ -40,7 +40,8 @@ static NSString *const kRequestURL = @"https://github.com/rs/SDWebImage/archive/
     self.totalLength = response.expectedContentLength;
     NSLog(@"totalLength: %lld", response.expectedContentLength);
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *filePath = [documentPath stringByAppendingString:response.suggestedFilename];
+    NSLog(@"document: %@", documentPath);
+    NSString *filePath = [documentPath stringByAppendingPathComponent:response.suggestedFilename];
     [NSFileManager.defaultManager createFileAtPath:filePath contents:nil attributes:nil];
     self.filePath = filePath;
 }
