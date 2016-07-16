@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,42 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ob-V9-fwA">
+                                <rect key="frame" x="247" y="246" width="106" height="30"/>
+                                <state key="normal" title="Start Download"/>
+                                <connections>
+                                    <action selector="startDownLoad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i1h-YQ-8wz"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8dF-NH-VoG">
+                                <rect key="frame" x="0.0" y="96" width="600" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="58K-lV-y2C"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="58K-lV-y2C"/>
+                                    </mask>
+                                </variation>
+                            </progressView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5ob-V9-fwA" firstAttribute="top" secondItem="8dF-NH-VoG" secondAttribute="top" constant="150" id="PqN-wT-PTd"/>
+                            <constraint firstItem="5ob-V9-fwA" firstAttribute="centerX" secondItem="8dF-NH-VoG" secondAttribute="centerX" id="rDa-Ck-xFX"/>
+                            <constraint firstItem="8dF-NH-VoG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uA0-7Y-8B4"/>
+                            <constraint firstItem="8dF-NH-VoG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="y7e-wE-cps"/>
+                            <constraint firstItem="8dF-NH-VoG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="76" id="zy3-H1-jJt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressView" destination="8dF-NH-VoG" id="u67-3N-yDR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="274" y="367"/>
         </scene>
     </scenes>
 </document>
